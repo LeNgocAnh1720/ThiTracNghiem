@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Monoton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Roboto';
+  line-height: 1.7;
+  color: #516171;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: 700 !important;
+  color: #092032;
+  font-family: 'Roboto';
+}
+
+p{
+  font-family: 'Roboto';
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: #092032;
+  transition: all 0.4s ease;
+  font-weight: 500;
+}
+
+img{
+  width: 100%;
+}
+
+section{
+  padding: 80px 0;
+}
+
+.bg-cover{
+  background-position: center !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.intro{
+  margin-bottom: 40px;  
+}
+.intro h6{
+  font-weight: 400;
+  color: #ff4d29;
+}
+
+.intro p{
+  max-width: 500px;
+  margin: auto;
+}
+/*NavBar*/
+.top-nav{
+  background-color: #ff4d29;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.top-nav p{
+  margin-bottom: 0;
+  display: inline-block;
+  margin-right: 16px;
+  color: white;
+}
+
+.top-nav i,
+.top-nav span{
+  vertical-align: middle;
+  font-family: 'Roboto';
+}
+
+.social-links a{
+  width: 34px;
+  height: 34px;
+  background-color: rgba(255,255,255,0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 100%;
+  text-decoration: none;
+}
+
+.social-links a:hover{
+  background-color: #ffffff;
+  color: #ff4d29;
+}
+
+.navbar{
+  box-shadow: 0px 6px 30px rgba(0,0,0,0.08);
+}
+
+.navbar .navbar-nav a.nav-link:hover,
+.navbar .navbar-nav label.nav-link:hover,
+.navbar .navbar-nav a.nav-link.active{
+  color: #ff4d29;
+  font-family: 'Roboto';
+}
+
+a.nav-link,
+a.btn-brand,
+a.btn-outline-light{
+  font-family: 'Roboto';
+}
+
+.navbar-brand{
+  font-weight: 700;
+  font-size: 26px;
+  color: #092032;
+}
+
+
+.navbar-brand span{
+  color: #ff4d29;
+}
+
+label.nav-link{
+  font-weight: bold;
+  color: #092032;
+}
+
+/*--------------Slider-----------------------*/
+.slide1{
+  background:linear-gradient(rgba(9,32,50,0.4),rgba(9,32,50,0.4)) ,url(../images/bg_banner1.jpg);
+}
+
+.slide2{
+  background:linear-gradient(rgba(9,32,50,0.4),rgba(9,32,50,0.4)) ,url(../images/bg_banner2.jpg);
+}
+
+/*-----------------PREV -- NEXT---------------------*/
+.owl-prev,
+.owl-next{
+  position: absolute;
+  top: 50%;
+  width: 60px !important;
+  height: 60px !important;
+  display: grid;
+  place-items: center;
+  background-color: rgba(255,255,255,0.2) !important;
+  margin-top: -30px !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  border-radius: 100px !important;
+}
+
+.owl-prev{
+  left: 0;
+}
+
+.owl-next{
+  right: 0;
+}
+
+.owl-prev:hover,
+.owl-next:hover{
+  background-color: #ff4d29 !important;
+}
+
+/*I--------------------INFO BOX--------------------*/
+.info-box{
+  display: flex;
+  align-items: center;
+}
+.info-box img{
+  width: 90px;
+  margin-right: 24px;
+}
+
+/*------------------Milesstone------------*/
+#milestone{
+  background:linear-gradient(rgba(255,77,41,0.9),rgba(255,77,41,0.9)) ,url(../images/bg_banner2.jpg);
+}
+
+#milestone .display-4,
+#milestone p{
+  color: #ffffff;
+  font-family: 'Roboto';
+}
+
+
+/*-----------------Services----------------------*/
+.service-box{
+  padding: 32px;
+  box-shadow: 0px 6px 30px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.service-box img{
+  width: unset;
+}
+
+.service-box h5{
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+
+
+/*-------------------Project---------------------*/
+#project-slider .owl-next,
+#project-slider .owl-prev{
+  background-color: #fff;
+}
+.project{
+  position: relative;
+}
+
+.project .overlay{
+  background:linear-gradient(to bottom ,rgba(9,32,50,0.0) ,rgba(9,32,50,0.8));
+  position: absolute;
+  width: 100%;
+  height: 340px;
+  bottom: 0;
+  left: 0;
+}
+
+.project .content{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 32px;
+}
+
+.project h1,
+.project h6{
+  color: #ffffff;
+}
+
+.project h6{
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.project h6::before{
+  content: '';
+  height: 3px;
+  width: 24px;
+  background-color: #ff4d29;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12px;
+
+}
+
+
+/*-------------------BLOG---------------------------*/
+.blog-post{
+  position: relative;
+  margin: 10px;
+}
+
+.blog-post .tag{
+  padding: 4px 12px;
+  background-color: #ff4d29;
+  color: #fff;
+  border-radius: 100px;
+  top: 20px;
+  left: 20px;
+  position: absolute;
+  text-decoration:  none;
+  font-family: 'Roboto';
+}
+
+.blog-post small{
+  font-family: 'Roboto';
+  color: #ff4d29;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+a.btn-brand{
+  background: #ff4d29;
+  font-family: 'Roboto';
+  color: #fff;
+}
+.blog-post img{
+  margin-bottom: 24px;
+}
+.blog-post h4{
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.blog-post h4:hover{
+  color: #ff4d29;
+}
+
+.blog-post p{
+  max-width: 400px;
+}
+/*-------------FOOTER------------------------*/
+footer{
+  padding-top: 80px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(rgba(9,32,50,0.8), rgba(9,32,50,0.8)),url(../images/bg_banner1.jpg);
+}
+
+footer .navbar-brand{
+color: #fff;
+}
+
+.footer-top{
+  margin-bottom: 40px;
+}
+
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.288);
+  padding-top: 40px;
+}
+
+.promotion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.promotion button{
+  margin-top: 30px;
+  width: 120px;
+  margin-right: 10px;
+  font-family: 'Roboto';
+}
+
+
+/*----------------Menu đứng------------------------*/
+.nav_menu{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 100%;
+  background: #fff;
+  transform: translateX(500%);
+  transition: 0.5s;
+}
+
+.nav__overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgb(0, 0, 0,0.3);
+  display: none;
+  animation: fadeIn linear 0.2s;
+}
+
+.nav__mobile-list{
+  margin-top: 24px;
+
+}
+
+.nav__input:checked ~ .nav__overlay{
+  display: block;
+  
+}
+.nav__input:checked ~.nav_menu{
+  transform: translateX(375%);
+}
+.nav__mobile-close{
+  width: 20px;
+  height: 20px;
+  color: #666;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+@keyframes fadeIn{
+  form{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}
+
+
+
+

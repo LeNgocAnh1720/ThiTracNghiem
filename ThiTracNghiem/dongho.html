@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <button onclick="thoigian(30)">30 giây</button>
+    </div>
+    <div id="donghonguoc">
+        <h3>Thoi gan con lai</h3>
+        <h4><span id="sophut"></span>: <span id="sogiay"></span></h4>
+    </div>
+
+    <div id="hetgio" style="display: none;">
+        Hết giờ
+    </div>
+    <script>
+        var thoiluong = 0;
+        function thoigian(x){
+            thoiluong = x;
+            demnguoc();
+        }
+
+        function demnguoc(){
+            thoiluong--;
+            sophut = Math.floor(thoiluong / 60);
+            sogiay = thoiluong % 60;
+
+            if(sophut<10){
+                sophut = "0"+sophut;
+                document.getElementById("sophut").innerHTML = sophut;
+                document.getElementById("sogiay").innerHTML = sogiay;
+            }
+            if(sogiay<10){
+                sogiay = "0"+sogiay;
+                document.getElementById("sophut").innerHTML = sophut;
+                document.getElementById("sogiay").innerHTML = sogiay;
+            }
+            
+
+            if(thoiluong > 0){
+                setTimeout(demnguoc,1000);
+            }else{
+                document.getElementById("hetgio").style.display = "block";
+            }
+            
+        }
+    </script>
+</body>
+</html>

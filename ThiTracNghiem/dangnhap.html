@@ -1,0 +1,54 @@
+
+    <div class="body" style="height: 90vh; background: #F8F8F8; display: flex;justify-content: center;align-items: center;" ng-controller="dangnhapCtrl">
+      <div class="signup_content col-sm-8 row" style="height: 85vh;background: white;padding: 45px 0; box-shadow: 0px 6px 30px rgba(0,0,0,0.08);">
+        <article class="col-sm-7">
+            <div class="row">
+                <div class="col-md-9 col-lg-8 mx-auto">
+                  <h3 class="login-heading mb-4">Welcome back!</h3>
+
+                  <form name="frmDangNhap">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" id="floatingInput" placeholder="Tên đăng nhập" ng-model="username" name="username" ng-minlength="3" ng-maxlength="25" required ng-pattern="/^[a-zA-Z0-9-]*$/">
+                      <label for="floatingInput">Tên đăng nhập</label>
+                      <div ng-show="frmDangNhap.username.$invalid" class="badge badge-danger font-italic text-danger">
+                        <i class='bx bx-x' style="font-size:25px;vertical-align: middle;"></i> Nhập tên đăng nhập 3-25 ký tự, không chứa ký tự đặc biệt
+                      </div>
+                      <div ng-hide="frmDangNhap.username.$invalid" class="badge badge-danger font-italic text-success">
+                        <i class='bx bx-check' style="font-size:25px;vertical-align: middle;"></i> Nhập tên đăng nhập hợp lệ
+                      </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control" id="floatingPassword" placeholder="Mật khẩu" ng-model="password" name="password" required ng-pattern="/^[a-zA-Z0-9-]*$/">
+                      <label for="floatingPassword">Mật khẩu</label>
+                      <div ng-show="frmDangNhap.password.$invalid" class="badge badge-danger font-italic text-danger">
+                        <i class='bx bx-x' style="font-size:25px;vertical-align: middle;"></i> Mật khẩu 3-25 kí tự, không chứa ký tự đặc biệt
+                      </div>
+                      <div ng-hide="frmDangNhap.password.$invalid" class="badge badge-danger font-italic text-success">
+                        <i class='bx bx-check' style="font-size:25px;vertical-align: middle;"></i> Nhập mật khẩu hợp lệ
+                      </div>
+                    </div>
+    
+                    <div class="form-check mb-4 align-items-center">
+                      <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                      <label class="form-check-label" for="rememberPasswordCheck">
+                        Ghi nhớ mật khẩu
+                      </label>
+                    </div>
+    
+                    <div class="d-grid">
+                      <button class="btn btn-lg btn-primary btn-login text-uppercase font-weight-bold mb-2 col-12" type="submit" ng-click="login()">Đăng nhập</button>
+                      <div class="text-center">
+                        <a class="small" href="#">Quên mật khẩu?</a>
+                      </div>
+                    </div>
+    
+                  </form>
+                </div>
+              </div>
+        </article>
+
+        <aside class="col-sm-5">
+            <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+        </aside>
+    </div>
+    </div>

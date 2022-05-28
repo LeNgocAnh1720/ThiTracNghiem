@@ -1,0 +1,3 @@
+---------------------------------------------------------------
+SPA : dưới phần slider
+Click vào "Danh sách môn học " ở thanh menu sẽ hiển thị ra menu môn học

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" ng-app="myApp">
+
+  <!--NAVBAR-->
+  <nav class="top-nav" id="home">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-6 col-sm-6 col-12">
+          <p>
+            <i class='bx bx-envelope'></i>
+            <span>anhlnps18555@fpt.edu.vn</span>
+          </p>
+          <p>
+            <i class='bx bx-phone'></i>
+            <span>0346064484</span>
+          </p>
+        </div>
+        <div class="col-auto ">
+          <div class="social-links">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-git'></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+            <a href="#"><i class='bx bxl-youtube'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">FPT POLYTECHNIC<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Số liệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#team">Giới thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#blog">Khoá học</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Tài khoản
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div ng-show="student==null">
+                  <a ng-click="intro=0" class="dropdown-item" href="#!dangky">Đăng kí</a>
+                  <a ng-click="intro=0" class="dropdown-item" href="#!dangnhap">Đăng nhập</a>
+                  <a ng-click="intro=0" class="dropdown-item" href="#!quenmatkhau">Quên mật khẩu</a>
+                </div>
+
+                <div ng-hide="student!=null">
+                  <a ng-click="intro=1" class="dropdown-item" href="#!suataikhoan">Thông tin cá nhân</a>
+                  <a ng-click="intro=1" class="dropdown-item" href="#!doimatkhau">Đổi mật khẩu</a>
+                  <a ng-click="intro=1" class="dropdown-item" href="#!dangxuat">Đăng xuất</a>
+                </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <label for="nav_menu_input" class="nav-link" style="font-family:'Roboto'">Danh sách môn học</label>
+          </li>
+          
+
+        </ul>
+      </div>
+
+
+      <!--MENU ĐỨNG-->
+      <input type="checkbox" hidden class="nav__input" id="nav_menu_input">
+      <label class="nav__overlay" for="nav_menu_input"></label>
+      <nav class="nav_menu" ng-controller="myCtrl1" id="navbar-example2">
+        <label class="nav__mobile-close" for="nav_menu_input">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <!--! Font Awesome Pro 6.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+              d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+          </svg>
+        </label>
+
+        <ul class="nav__mobile-list list-group mt-5">
+          <li class="list-group-item" ng-repeat="mh in cacmonhoc|limitTo:15:0">
+            <a href="#!tracnghiem/{{mh.Id}}/{{mh.Name}}" style="text-decoration: none;" onclick="thoigian(300)">{{mh.Name|uppercase}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+
+  <!--SLIDER-->
+  <div class="slider-wrapper owl-carousel owl-theme" id="hero-slider">
+    <div class="slide1 min-vh-100 d-flex bg-cover align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h6 class="text-uppercase text-white">Thiết kế đồ hoạ 4.0</h6>
+            <h1 class="display-2 my-3 text-white text-uppercase">Thiết kế thúc đẩy <br> sự đồng cảm</h1>
+            <a href="#" class="btn btn-brand"> Get Started</a>
+            <a href="#" class="btn btn-outline-light ms-md-3"> Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide2 min-vh-100 d-flex bg-cover align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h6 class="text-uppercase text-white">Lập trình viên</h6>
+            <h1 class="display-2 my-3 text-white text-uppercase">Nó đang chạy <br> trên máy của tôi</h1>
+            <a href="#" class="btn btn-brand"> Get Started</a>
+            <a href="#" class="btn btn-outline-light ms-md-3"> Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-view></ng-view>
+  <!--ABOUT-->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-lg-5">
+          <div class="row">
+            <div class="col-12 info-box mb-3">
+              <img src="/images/icon1.png" alt="">
+              <div>
+                <h5>THIẾT KẾ ĐỒ HOẠ</h5>
+                <p>Thiết kế nên những hình ảnh phù hợp cho nhu cầu và mong muốn</p>
+              </div>
+            </div>
+
+            <div class="col-12 info-box mb-3">
+              <img src="/images/icon2.png" alt="">
+              <div>
+                <h5>KỸ THUẬT PHẦN MỀM</h5>
+                <p>Tạo ra những sản phẩm phần mềm để dễ dàng quản lý </p>
+              </div>
+            </div>
+
+            <div class="col-12 info-box mb-3">
+              <img src="/images/icon3.png" alt="">
+              <div>
+                <h5>LẬP TRÌNH MÁY TÍNH</h5>
+                <p>Thiết kế lập trình nên máy tính phù hợp, tiện dụng cho từng yêu cầu khác nhau</p>
+              </div>
+            </div>
+
+            <div class="col-12 info-box mb-3">
+              <img src="/images/icon2.png" alt="">
+              <div>
+                <h5>THIẾT KẾ WEBSITE</h5>
+                <p>Thiết kế nên những website đẹp mắt, phục vụ cho nhu cầu của
+                  người dùng </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <img src="./images/about.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Content-->
+  <section id="milestone" class="bg-cover">
+    <div class="container">
+      <div class="row gy-4 text-center justify-content-center">
+        <div class="col-lg-2 col-sm-6">
+          <div class="display-4 fw-bold">90K+</div>
+          <p class="mb-0">Người sử dụng</p>
+        </div>
+
+        <div class="col-lg-2 col-sm-6">
+          <div class="display-4 fw-bold">10M</div>
+          <p class="mb-0">Câu hỏi trắc nghiệm</p>
+        </div>
+
+        <div class="col-lg-2 col-sm-6">
+          <div class="display-4 fw-bold">1000</div>
+          <p class="mb-0">Tài khoản</p>
+        </div>
+
+        <div class="col-lg-2 col-sm-6">
+          <div class="display-4 fw-bold">380K</div>
+          <p class="mb-0">Đăng ký</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Service-->
+  <section id="services" ng-controller="myCtrl2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 intro text-center">
+          <h6>DỊCH VỤ CỦA CHÚNG TÔI</h6>
+          <h1>THI TRẮC NGHIỆM</h1>
+          <p>Đây là bộ câu hỏi trắc nghiệm được chúng tôi soạn
+            theo từng môn học, nhằm ôn lại kiến thức và củng cố lại
+            kiến thức cho người sử dụng
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-sm-6 mb-3" ng-repeat="monhoc in listmonhoc|limitTo:6:start">
+          <div class="service-box" style="min-height:415.00px">
+            <img src="./images/logos/{{monhoc.Logo}}" alt="">
+            <a href="#" style="text-decoration:none">
+              <h5>{{monhoc.Name}}</h5>
+            </a>
+            <p>{{monhoc.Decripstion}}
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="row promotion">
+        <button class="btn btn-primary " type="submit" ng-click="truoc()">Trang trước</button>
+        <button class="btn btn-primary" type="submit" ng-click="tiep()">Trang kế</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!--team-->
+  <section id="team" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 intro text-center">
+          <h6>GIỚI THIỆU TRANG WEB</h6>
+          <h1>FPT POLYTECHNIC</h1>
+          <p>Đây là trang web được tạo nên từ sinh viên Trường Cao đẳng FPT POLYTECHNIC.
+            Với tiêu chí nhằm cung cấp những câu hỏi trắc nghiệm cho các môn học lập trình
+            Nhằm ôn lại kiến thức, và cung cấp kiến thức cho sinh viên. Và đây là một số bộ câu
+            hỏi trắc nghiệm cho sinh viên.
+          </p>
+        </div>
+      </div>
+
+      <div id="project-slider" class="owl-theme owl-carousel">
+        <div class="project">
+          <img src="./images/project3.jpg" alt="">
+          <div class="overlay"></div>
+          <div class="content">
+            <h1>Thị trường làm việc</h1>
+            <h6>Thị trường làm việc đa dạng</h6>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="./images/project4.jpg" alt="">
+          <div class="overlay"></div>
+          <div class="content">
+            <h1>Cơ hội nghề nghiệp</h1>
+            <h6>Làm việc với thu nhập cao</h6>
+          </div>
+        </div>
+
+        <div class="project">
+          <img src="./images/project5.jpg" alt="">
+          <div class="overlay"></div>
+          <div class="content">
+            <h1>Môi trường làm việc</h1>
+            <h6>Môi trường làm việc năng động</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Blog-->
+  <section id="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 intro text-center">
+          <h6>KHOÁ HỌC CỦA CHÚNG TÔI</h6>
+          <h1>KHOÁ HỌC</h1>
+          <p> Đây là một số khoá học đang triển khai, và
+            sẽ ra mắt sắp tới trên website của chúng tôi.
+          </p>
+        </div>
+      </div>
+
+
+      <div class="owl-carousel owl-theme" id="blog-list">
+        <div class="blog-post ">
+          <a href="#" class="tag"> Thiết kế</a>
+          <img src="./images/project1.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>Photoshop 2022</h4>
+          <p>Khoá học Photoshop với công cụ Adobe Photoshop
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag">Lập trình</a>
+          <img src="./images/project2.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>Lập trình Java</h4>
+          <p>Khoá học lập trình java , tổ chức mô hình MVC
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag"> Lập trình</a>
+          <img src="./images/project3.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>Lập trình website</h4>
+          <p>Khoá học lập trình java web, sử dụng JPA Hibernate
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag"> Cơ sở dữ liệu</a>
+          <img src="./images/project4.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>SQL SERVER</h4>
+          <p>Khoá học cơ sở dữ liệu SQL Server
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag"> Cơ sở dữ liệu</a>
+          <img src="./images/project5.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>Oracle Database</h4>
+          <p>Khoá học cơ sở dữ liệu Oracle Database
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag"> Cơ sở dữ liệu</a>
+          <img src="./images/project4.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>SQL SERVER</h4>
+          <p>Khoá học cơ sở dữ liệu SQL Server
+          </p>
+        </div>
+
+        <div class="blog-post ">
+          <a href="#" class="tag"> Cơ sở dữ liệu</a>
+          <img src="./images/project5.jpg" alt="">
+          <small>12 Dec, 2022</small>
+          <h4>Oracle Database</h4>
+          <p>Khoá học cơ sở dữ liệu Oracle Database
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Footer-->
+  <div class="row" ng-include="'footer.html'">
+
+  </div>
+</body>
+<script src="js/listsv.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/monhoc.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dongho.js"></script>
+<!--Load các danh sách môn học-->
+<script>
+  var app = angular.module("myApp", ["ngRoute"])
+  app.config(function ($routeProvider) {
+    $routeProvider
+      .when("/dangnhap", {
+        templateUrl: "dangnhap.html"
+      })
+      .when("/dangky", {
+        templateUrl: "dangky.html"
+      })
+      .when("/doimatkhau", {
+        templateUrl: "DoiMatKhau.html"
+      })
+      
+      .when("/suataikhoan", {
+        templateUrl: "SuaTaiKhoan.html"
+      })
+      
+      .when("/tracnghiem/:idMH/:tenMH", {
+        templateUrl: "tracnghiem.html",
+        controller: "tnCtrl"
+      })
+      .otherwise({
+        redirectTo: "Trangchu.html"
+      })
+  })
+
+
+  app.controller("myCtrl1", function ($scope, $http) {
+    $scope.cacmonhoc = [];
+    $http.get("js/monhoc.js").then(function (d) {
+      $scope.cacmonhoc = d.data;
+    })
+  })
+
+  app.controller("myCtrl2", function ($scope, $http) {
+    $scope.start = 0;
+    $scope.listmonhoc = [];
+    $http.get("js/monhoc.js").then(function (d) {
+      $scope.listmonhoc = d.data;
+    })
+    $scope.truoc = function () {
+      $scope.start -= 6;
+    }
+    $scope.tiep = function () {
+      $scope.start += 6;
+    }
+  })
+
+  app.controller("tnCtrl", function ($scope, $http, $routeParams) {
+    $scope.cau = 0;
+    $scope.caccauhoi = [];
+    $scope.idMH = $routeParams.idMH;
+    $scope.tenMH = $routeParams.tenMH;
+    $http.get("js/database/" + $scope.idMH + ".js").then(
+      function (d) {
+        $scope.caccauhoi = d.data;
+        $scope.tongcauhoi = $scope.caccauhoi.length;
+      },
+      function (d) {
+        alert("Lỗi");
+      },
+    )
+    
+    $scope.start = function(){
+      $scope.inprogess = true;
+    }
+
+    $scope.reset = function(){
+      $scope.inprogess = false;
+    }
+    
+    $scope.next = function () {
+      if($scope.cau < $scope.caccauhoi.length-1){
+        $scope.cau += 1;
+      }
+    }
+
+    $scope.prev = function () {
+      if($scope.cau > 0){
+        $scope.cau -= 1;
+      }
+    }
+
+    $scope.kiemtraphuongan = function(idPA,idPADung){
+      $scope.ketqua = 0;
+      if(idPA == idPADung){
+        alert("Đúng")
+         $scope.ketqua++;
+      }
+    }
+  })
+
+  app.controller("dangnhapCtrl", function ($scope,$rootScope) {
+    $scope.login = function () {
+      var username = $scope.username;
+      var password = $scope.password;
+      var tc = false;
+      var motsv;
+
+      for (var i = 0; i < listsv.length; i++) {
+        motsv = listsv[i];
+        if (username == motsv.username && password == motsv.password) {
+          tc = true;
+          break;
+        }
+      }
+      if (tc) {
+        alert("Đăng nhập thành công");
+        $scope.student = motsv;
+        sessionStorage.setItem("fullname", $scope.student.fullname);
+        document.location = "Trangchu.html";
+        
+      }
+    }
+  })
+
+  app.controller("ThemCtrl", function ($scope) {
+      $scope.students = listsv;
+      $scope.student = {};
+      $scope.index = -1;
+      $scope.insert = function () {
+        $scope.students.push(angular.copy($scope.student))
+        alert ("Thêm sinh viên " +$scope.student.username+ " thành công")
+        document.location("Trangchu.html")
+    }
+
+    $scope.dangxuat = function () {
+      alert("Bạn đã đăng xuất thành công!!");
+      $scope.username = "";
+      $scope.password = "";
+      sessionStorage.removeItem("username");
+      sessionStorage.removeItem("password");
+      
+      document.location("Trangchu.html")
+    }
+
+
+  })
+
+  app.controller("update",function($scope){
+    $scope.update = function(){
+      $scope.students[$scope.index] = angular.copy($scope.student)
+    alert("Update thành công")
+    }
+  })
+
+
+
+</script>
+
+</html>

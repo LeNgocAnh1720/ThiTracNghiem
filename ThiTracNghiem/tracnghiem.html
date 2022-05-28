@@ -1,0 +1,36 @@
+<div class="body" style="display: flex; justify-content: center;align-items: center;color: #222222;">
+    <div class="row" ng-show="!inprogess">
+        <p class="text-uppercase fw-bold" style="text-align: center;">Trọn bộ trắc nghiệm môn : <span style="color: red;">{{tenMH}}</span></p>
+        <button class="btn btn-primary" ng-click="start()" style="width: 150px; margin: 0 auto;" onclick="thoigian(300)">Bắt đầu làm bài</button>
+    </div>
+    <article class="col-sm-9 col-12" ng-show="inprogess">
+        <div class="col-sm-12 col-12" >
+            <p class="text-uppercase fw-bold" >Trọn bộ trắc nghiệm môn : <span style="color: red;">{{tenMH}}</span></p>
+            <h3 style="text-align: center; ">Thời gian làm bài của bạn còn <span id="sophut" style="color: red;"></span>:<span id="sogiay" style="color: red;"></span></h3>
+            <div class="card" ng-repeat="ch in caccauhoi|limitTo:1:cau" style="margin: 0 auto;">
+                <div class="card-header">Câu hỏi {{cau+1}}: {{ch.Text}}</div>
+                <div class="card-body">
+                    <p class="card-text" ng-repeat="pa in ch.Answers">
+                        <input type="radio" name="pa" value="{{pa.Id}}" ng-click="kiemtraphuongan(pa.Id,ch.AnswerId)"> {{pa.Text}}
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    Điểm : {{ch.Marks}} <p style="float: right; background-color: green; color: white; padding-left: 10px; padding-right:10px; border-radius: 4px;">Số câu trả lời: <span>{{cau+1}}</span> of <span>{{tongcauhoi}}</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 promotion">
+            <button type="button" class="btn btn-outline-primary" ng-click="prev()"><i class='bx bx-chevrons-left'></i></button>
+            <button type="button" class="btn btn-outline-primary" ng-click="next()"><i class='bx bx-chevrons-right'></i></button>
+            <button type="button" class="btn btn-primary" ng-click="checkAnser()"><i class='bx bx-chevrons-right'></i>Kết thúc</button>
+        </div>
+    </article>
+</div>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    
+    
+    
+</script>
